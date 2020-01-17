@@ -1,8 +1,16 @@
 {
     "name": "Apollo Tracing",
-    "version": "1.0",
-    "description": "AAAAAAA",
-    "devtools_page": "devtools.html",
+    "description": "An extension to help you visualize Apollo graphql tracing data",
+
+    "icons": {
+      "16": "icons/16.png",
+      "48": "icons/48.png",
+      "128": "icons/128.png"
+    },
+
+    "version": "0.0.1",
     "manifest_version": 2,
-    "content_security_policy": "script-src 'self' https://unpkg.com; object-src 'self'"
+
+    "content_security_policy": "script-src 'self' https://unpkg.com; object-src 'self'",
+    "devtools_page": "devtools.html"
 }

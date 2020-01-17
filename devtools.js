@@ -4,6 +4,6 @@ const extensionData = {
 
 chrome.devtools.panels.create(
   "Apollo Tracing",
-  "./panel/logo.png",
+  "logo.png",
   "./panel/index.html",
 )
