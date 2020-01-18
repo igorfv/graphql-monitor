@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import '../../css/reset.scss'
+import Empty from './empty'
+
+import '../css/reset.scss'
 
 
 class App extends Component {
@@ -36,7 +38,21 @@ class App extends Component {
   }
 
   render() {
-    return (<h1>Hey</h1>)
+    const { tracing } = this.props
+    const { requests } = tracing
+    const hasRequests = requests.length > 0
+
+    return (
+      <>
+        {
+          hasRequests ? (
+            <div>You got mail!</div>
+          ) : (
+            <Empty />
+          )
+        }
+      </>
+    )
   }
 }
 

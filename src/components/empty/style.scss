@@ -1,0 +1,19 @@
+@import "../../css/typography";
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  &__paragraph {
+    text-align: center;
+    margin: 8px 20px;
+  }
+
+  &__anchor {
+    @include font-weight(bold);
+    color: inherit;
+  }
+}

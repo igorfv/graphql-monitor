@@ -9,6 +9,6 @@
 
 body {
   @include typography();
-  background: $color-base-grey;
-  color: $color-white;
+  background: $color-background;
+  color: $color-text-main;
 }
