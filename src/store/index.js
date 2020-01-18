@@ -1,4 +1,4 @@
-class TracingData {
+export class TracingData {
   requests = []
   callbacks = []
 
@@ -43,18 +43,3 @@ class TracingData {
     this.callbacks.forEach((callback) => callback())
   }
 }
-
-const tracingData = new TracingData()
-
-
-chrome.devtools.network.onRequestFinished.addListener((request) => {
-  if (request.response.status !== 200) return
-  if (request.response.content.mimeType !== "application/json") return
-
-  request.getContent((content) => {
-    const data = JSON.parse(content)
-    if (!hasTracingData(data)) return
-
-    tracingData.add(data.extensions.tracing)
-  })
-})

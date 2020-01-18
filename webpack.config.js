@@ -10,8 +10,8 @@ const env = process.env.NODE_ENV || 'development'
 const options = {
   mode: env,
   entry: {
-    index: './src/index.js',
-    panel: './src/panel.js',
+    index: './src/index.entry.js',
+    panel: './src/panel.entry.js',
   },
   output: {
     path: path.join(__dirname, 'dist'),
@@ -19,6 +19,13 @@ const options = {
   },
   module: {
     rules: [
+      {
+        test: /\.scss$/,
+        use: [
+          'css-loader',
+          'sass-loader',
+        ]
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
