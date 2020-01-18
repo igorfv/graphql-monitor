@@ -1,6 +1,8 @@
+/* eslint-disable */
+
 class SidePanelItem extends React.Component {
-  render () {
-    const duration = this.props.duration/1000000
+  render() {
+    const duration = this.props.duration / 1000000
     let durationClass = 'duration--good'
     if (duration > 500) durationClass = 'duration--ok'
     if (duration > 1000) durationClass = 'duration--bad'
@@ -10,15 +12,17 @@ class SidePanelItem extends React.Component {
       e('div', { className: 'side-panel-item__name' }, this.props.name),
       e('div', { className: 'side-panel-item__start-time' }, new Date(this.props.startTime).toLocaleTimeString()),
       e('div', { className: `side-panel-item__duration ${durationClass}` }, formatTime(this.props.duration)),
-      e('div', { className: `side-panel-item__remove`, onClick: this.props.handleRemove }, 'x'),
+      e('div', { className: 'side-panel-item__remove', onClick: this.props.handleRemove }, 'x'),
     )
   }
 }
 
 
 class SidePanel extends React.Component {
-  render () {
-    const { requests, handleClick, handleRemove, handleClear, selectedIndex } = this.props
+  render() {
+    const {
+      requests, handleClick, handleRemove, handleClear, selectedIndex,
+    } = this.props
 
     return e(
       'div',
@@ -36,11 +40,11 @@ class SidePanel extends React.Component {
               startTime,
               handleClick: (e) => handleClick(e, index),
               handleRemove: (e) => handleRemove(e, index),
-            }
+            },
           )
         )),
-        requests.length > 2 && e('div', { className: 'side-panel-item__clear', onClick: handleClear }, 'Clear')
-      )
+        requests.length > 2 && e('div', { className: 'side-panel-item__clear', onClick: handleClear }, 'Clear'),
+      ),
     )
   }
 }

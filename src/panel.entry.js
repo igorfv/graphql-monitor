@@ -1,3 +1,6 @@
+import React from 'react'
+import { render } from 'react-dom'
+
 import App from './components/app'
 
 import { TracingData } from './store'
@@ -9,7 +12,7 @@ const tracingData = new TracingData()
 
 chrome.devtools.network.onRequestFinished.addListener((request) => {
   if (request.response.status !== 200) return
-  if (request.response.content.mimeType !== "application/json") return
+  if (request.response.content.mimeType !== 'application/json') return
 
   request.getContent((content) => {
     const data = JSON.parse(content)
@@ -20,7 +23,7 @@ chrome.devtools.network.onRequestFinished.addListener((request) => {
 })
 
 
-ReactDOM.render(
+render(
   <App tracing={tracingData} />,
-  document.getElementById('root')
+  document.getElementById('root'),
 )

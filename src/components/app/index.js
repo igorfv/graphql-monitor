@@ -1,15 +1,17 @@
-import './reset.scss'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+
+import '../../css/reset.scss'
 
 
-class App extends React.Component {
+class App extends Component {
   state = {
     selectedIndex: null,
   }
 
   componentDidMount() {
-    this.props.tracing.onChange(() => {
-      this.forceUpdate()
-    })
+    const { tracing } = this.props
+    tracing.onChange(() => this.forceUpdate())
   }
 
   handleClick = (e, index) => {
@@ -20,14 +22,31 @@ class App extends React.Component {
     e.stopPropagation()
 
     const { selectedIndex } = this.state
-    if (selectedIndex === index) this.setState({ selectedIndex: null })
+    const { tracing } = this.props
 
-    this.props.tracing.remove(index)
+    if (selectedIndex === index) this.setState({ selectedIndex: null })
+    tracing.remove(index)
   }
 
   handleClear = (e) => {
-    this.props.tracing.clear()
+    e.stopPropagation()
+
+    const { tracing } = this.props
+    tracing.clear()
   }
+
+  render() {
+    return (<h1>Hey</h1>)
+  }
+}
+
+App.propTypes = {
+  tracing: PropTypes.shape({
+    requests: PropTypes.arrayOf(PropTypes.object),
+    onChange: PropTypes.func,
+    remove: PropTypes.func,
+    clear: PropTypes.func,
+  }).isRequired,
 }
 
 export default App

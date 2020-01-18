@@ -1,5 +1,6 @@
 export class TracingData {
   requests = []
+
   callbacks = []
 
   add(request) {
@@ -18,7 +19,10 @@ export class TracingData {
   }
 
   formatRequest(request) {
-    const { duration, execution, startTime, endTime } = request
+    const {
+      duration, execution, startTime, endTime,
+    } = request
+
     const { resolvers } = execution
 
     const name = resolvers
@@ -43,3 +47,5 @@ export class TracingData {
     this.callbacks.forEach((callback) => callback())
   }
 }
+
+export default {}

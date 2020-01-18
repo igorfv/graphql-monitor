@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const MessagePanel = e(
   'div',
   { className: 'message-box' },
@@ -6,10 +8,10 @@ const MessagePanel = e(
     'a',
     {
       className: 'link',
-      target:"_blank",
-      href: 'https://github.com/apollographql/apollo-server/tree/master/packages/apollo-tracing'
+      target: '_blank',
+      href: 'https://github.com/apollographql/apollo-server/tree/master/packages/apollo-tracing',
     },
-    'Apollo documentation'
+    'Apollo documentation',
   ),
-  ' for more information.'
+  ' for more information.',
 )

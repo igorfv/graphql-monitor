@@ -1,50 +1,53 @@
-const webpack = require('webpack')
 const path = require('path')
+const { getIfUtils, removeEmpty } = require('webpack-config-utils')
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 
 
-const env = process.env.NODE_ENV || 'development'
+module.exports = (env = {}) => {
+  const { ifProduction, ifNotProduction } = getIfUtils(env)
 
-const options = {
-  mode: env,
-  entry: {
-    index: './src/index.entry.js',
-    panel: './src/panel.entry.js',
-  },
-  output: {
-    path: path.join(__dirname, 'dist'),
-    filename: '[name].js',
-  },
-  module: {
-    rules: [
-      {
-        test: /\.scss$/,
-        use: [
-          'css-loader',
-          'sass-loader',
-        ]
-      },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: 'babel-loader',
-      },
-    ],
-  },
-  plugins: [
-    new CleanWebpackPlugin(),
-    new CopyPlugin([
-      { from: './src/images/**/*', to: 'images', flatten: true },
-      { from: './src/manifest.json', flatten: true },
-      { from: './src/html/*.html', flatten: true },
+  return {
+    mode: ifProduction('production', 'development'),
+    entry: {
+      index: './src/index.entry.js',
+      panel: './src/panel.entry.js',
+    },
+    output: {
+      path: path.join(__dirname, 'dist'),
+      filename: '[name].js',
+    },
+    devtool: ifProduction('source-map', false),
+    module: {
+      rules: [
+        {
+          test: /\.scss$/,
+          use: [
+            'css-loader',
+            'sass-loader',
+          ],
+        },
+        ifNotProduction({
+          enforce: 'pre',
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: 'eslint-loader',
+        }),
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: 'babel-loader',
+        },
+      ],
+    },
+    plugins: removeEmpty([
+      ifProduction(new CleanWebpackPlugin()),
+      new CopyPlugin([
+        { from: './src/images/**/*', to: 'images', flatten: true },
+        { from: './src/manifest.json', flatten: true },
+        { from: './src/html/*.html', flatten: true },
+      ]),
     ]),
-  ],
+  }
 }
-
-if (env === 'development') {
-  options.devtool = 'source-map'
-}
-
-module.exports = options

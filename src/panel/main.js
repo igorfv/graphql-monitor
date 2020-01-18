@@ -1,5 +1,7 @@
+/* eslint-disable */
+
 class PercentageItemText extends React.Component {
-  render () {
+  render() {
     const { children, position } = this.props
 
     return e(
@@ -13,8 +15,10 @@ class PercentageItemText extends React.Component {
 }
 
 class PercentageItem extends React.Component {
-  render () {
-    const { duration, base, offset, depth, children } = this.props
+  render() {
+    const {
+      duration, base, offset, depth, children,
+    } = this.props
 
     const width = parseFloat(100 / base * duration).toFixed(2)
     const marginLeft = parseFloat(100 / base * offset).toFixed(2)
@@ -36,9 +40,9 @@ class PercentageItem extends React.Component {
           width: `${width}%`,
           marginLeft: `${marginLeft}%`,
           background,
-        }
+        },
       },
-      e(PercentageItemText, { position }, children)
+      e(PercentageItemText, { position }, children),
     )
   }
 }
@@ -46,11 +50,11 @@ class PercentageItem extends React.Component {
 const EmptyPanel = e(
   'div',
   { className: 'main-panel-empty' },
-  'Nothing to see here =('
+  'Nothing to see here =(',
 )
 
 class MainPanel extends React.Component {
-  render () {
+  render() {
     const { request } = this.props
 
     const { name, duration, resolvers } = request || {}
@@ -63,7 +67,9 @@ class MainPanel extends React.Component {
         !request ? EmptyPanel : e(
           React.Fragment, null,
           e('h1', { className: 'main-panel-title' }, name),
-          e(PercentageItem, { duration, base, offset: 0, depth: 0 }, formatTime(duration)),
+          e(PercentageItem, {
+            duration, base, offset: 0, depth: 0,
+          }, formatTime(duration)),
           resolvers.map((resolver) => e(
             PercentageItem,
             {
@@ -76,9 +82,9 @@ class MainPanel extends React.Component {
             resolver.path.join('.'),
             ' - ',
             formatTime(resolver.duration),
-          ))
-        )
-      )
+          )),
+        ),
+      ),
     )
   }
 }

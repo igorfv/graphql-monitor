@@ -1,0 +1,14 @@
+@import './pallete';
+@import './typography';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  @include typography();
+  background: $color-base-grey;
+  color: $color-white;
+}

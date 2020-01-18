@@ -1,16 +1,15 @@
-const isGraphql = (data) => (
-  data && !!data.extensions
-)
+import { get } from 'lodash'
+
+const isGraphql = (data) => !!get(data, 'extensions', null)
 
 
 const hasTracing = (data) => {
   if (!isGraphql(data)) return false
 
-  const extensions = data.extensions
-  const tracing = extensions.tracing
+  const tracing = get(data, 'extensions.tracing', null)
 
   if (!tracing) return false
-  return tracing.execution.resolvers.length > 0
+  return get(tracing, 'execution.resolvers', []).length > 0
 }
 
 export default hasTracing

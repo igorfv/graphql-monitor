@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 class App extends React.Component {
   state = {
     selectedIndex: null,
@@ -26,8 +28,8 @@ class App extends React.Component {
     this.props.tracing.clear()
   }
 
-  render () {
-    const requests = this.props.tracing.requests
+  render() {
+    const { requests } = this.props.tracing
     const { selectedIndex } = this.state
     const { handleClick, handleRemove, handleClear } = this
 
@@ -36,8 +38,10 @@ class App extends React.Component {
         React.Fragment,
         null,
         requests.length === 0 && e('div', { className: 'message-panel' }, MessagePanel),
-        e(SidePanel, { requests, handleClick, handleRemove, handleClear, selectedIndex }),
-        e(MainPanel, { request: requests[selectedIndex] || null })
+        e(SidePanel, {
+          requests, handleClick, handleRemove, handleClear, selectedIndex,
+        }),
+        e(MainPanel, { request: requests[selectedIndex] || null }),
       )
     )
   }
@@ -45,5 +49,5 @@ class App extends React.Component {
 
 ReactDOM.render(
   e(App, { tracing: tracingData }),
-  document.getElementById('root')
+  document.getElementById('root'),
 )

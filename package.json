@@ -9,7 +9,20 @@
   "scripts": {
     "start": "webpack --watch",
     "build": "webpack -p",
+    "fix": "eslint src --fix",
+    "lint": "eslint src",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run fix",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
@@ -32,14 +45,29 @@
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
+    "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^3.4.2",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-loader": "^3.0.3",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.18.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^4.0.10",
+    "lint-staged": "^9.5.0",
+    "lodash": "^4.17.15",
     "node-sass": "^4.13.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "sass-loader": "^8.0.2",
     "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.10",
+    "webpack-config-utils": "^2.3.1"
   }
 }
