@@ -24,4 +24,9 @@
     @include typography(xxl, bold);
     margin-bottom: 30px;
   }
+
+  &__hide-small {
+    display: block;
+    margin-bottom: 10px;
+  }
 }
