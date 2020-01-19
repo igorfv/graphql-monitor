@@ -10,15 +10,18 @@ Also, this project was quickly done while I was learning how to create an extens
 ## Todo list
 
 ### Basic structure
-- [ ] Add webpack (or other tool)
-- [ ] Uglify
-- [ ] Use React production build from CDN
-- [ ] Add babel and JSX support
-- [ ] Add SASS/Styled components
+- [x] Pack extension on prod build
+- [x] Add webpack (or other tool)
+- [x] Uglify
+- [x] Add babel and JSX support
+- [x] Add SASS/Styled components
 - [ ] Add Jest and write unit tests
-- [ ] Split component files
-- [ ] Create a better layout
+- [x] Split component files
+- [x] Create a better layout
+- [ ] Find a designer to create an actual good layout
 
 ### Features
-- [ ] Save request
-- [ ] Compare
+- [ ] Save request for later
+- [ ] Compare requests
+- [x] Hide items slammer than 1ms
+- [ ] Display requests made before extension opens

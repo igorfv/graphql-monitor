@@ -8,7 +8,8 @@
   },
   "scripts": {
     "start": "webpack --watch",
-    "build": "webpack -p",
+    "build": "webpack -p && npm run zip",
+    "zip": "zip -r extension.zip dist",
     "fix": "eslint src --fix",
     "lint": "eslint src",
     "test": "echo \"Error: no test specified\" && exit 1"
