@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import Empty from './empty'
+import Layout from './layout'
 
 import '../css/reset.scss'
 
@@ -34,10 +35,13 @@ class App extends Component {
     e.stopPropagation()
 
     const { tracing } = this.props
+
+    this.setState({ selectedIndex: null })
     tracing.clear()
   }
 
   render() {
+    const { selectedIndex } = this.state
     const { tracing } = this.props
     const { requests } = tracing
     const hasRequests = requests.length > 0
@@ -46,7 +50,13 @@ class App extends Component {
       <>
         {
           hasRequests ? (
-            <div>You got mail!</div>
+            <Layout
+              requests={requests}
+              handleClick={this.handleClick}
+              handleRemove={this.handleRemove}
+              handleClear={this.handleClear}
+              selectedIndex={selectedIndex}
+            />
           ) : (
             <Empty />
           )

@@ -9,8 +9,7 @@ class SidePanelItem extends React.Component {
 
     return e(
       'div', { className: `side-panel-item ${this.props.selected && 'selected'}`, onClick: this.props.handleClick },
-      e('div', { className: 'side-panel-item__name' }, this.props.name),
-      e('div', { className: 'side-panel-item__start-time' }, new Date(this.props.startTime).toLocaleTimeString()),
+
       e('div', { className: `side-panel-item__duration ${durationClass}` }, formatTime(this.props.duration)),
       e('div', { className: 'side-panel-item__remove', onClick: this.props.handleRemove }, 'x'),
     )

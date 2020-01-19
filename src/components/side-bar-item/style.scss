@@ -1,0 +1,75 @@
+@import '../../css/pallete';
+@import '../../css/typography';
+
+.side-bar-item {
+  border-bottom: 1px solid $color-darker-background;
+  height: 60px;
+  max-width: 100%;
+  padding: 5px 2px 10px;
+  position: relative;
+
+  &:hover {
+    background: darken($color-background, 2%);
+  }
+
+  &.selected {
+    background: lighten($color-background, 2%);
+  }
+
+  &__name {
+    @include typography(l, bold);
+    left: 10px;
+    overflow: hidden;
+    position: absolute;
+    text-overflow: ellipsis;
+    top: 5px;
+    white-space: nowrap;
+    width: 200px;
+  }
+
+  &__start-time {
+    @include typography(xxs);
+    bottom: 7px;
+    color: $color-border;
+    left: 10px;
+    position: absolute;
+  }
+
+  &__duration {
+    bottom: 6px;
+    color: $color-status-regular;
+    position: absolute;
+    right: 10px;
+
+    &.duration--good {
+      color: $color-status-good;
+    }
+
+    &.duration--bad {
+      color: $color-status-bad;
+    }
+  }
+
+  &__remove {
+    @include typography(m, bold);
+    color: $color-status-bad;
+    cursor: pointer;
+    display: none;
+    height: 20px;
+    line-height: 18px;
+    position: absolute;
+    right: 3px;
+    text-align: center;
+    top: 2px;
+    width: 20px;
+  }
+
+  &:hover &__remove {
+    display: block;
+  }
+
+  &__remove:hover {
+    background: $color-status-bad;
+    color: $color-darker-background;
+  }
+}
