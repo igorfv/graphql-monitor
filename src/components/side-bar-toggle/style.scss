@@ -5,6 +5,7 @@
   background: $color-darker-background;
   border: 0;
   color: $color-text-main;
+  cursor: pointer;
   display: flex;
   font-size: 12px;
   height: 100%;
@@ -14,6 +15,5 @@
 
   &:hover {
     background: lighten($color-darker-background, 2%);
-    cursor: pointer;
   }
 }

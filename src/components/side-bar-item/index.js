@@ -29,7 +29,7 @@ SideBarItem.propTypes = {
   handleRemove: PropTypes.func.isRequired,
   selected: PropTypes.bool.isRequired,
   name: PropTypes.string.isRequired,
-  startTime: PropTypes.number.isRequired,
+  startTime: PropTypes.string.isRequired,
   duration: PropTypes.number.isRequired,
 }
 

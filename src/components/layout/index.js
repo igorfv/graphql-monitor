@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import SideBar from '../side-bar'
 import SideBarToogle from '../side-bar-toggle'
+import Main from '../main'
 
 import './style.scss'
 
@@ -25,7 +26,9 @@ const Layout = ({
       </div>
       <SideBarToogle active={active} setActive={setActive} />
       <div className="layout__main-content">
-        main
+        <Main
+          request={requests[selectedIndex]}
+        />
       </div>
     </div>
   )
