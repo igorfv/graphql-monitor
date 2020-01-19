@@ -1,6 +1,6 @@
 {
   "name": "apollo-tracing-extension",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Extension to help visualize Apollo Tracing Data",
   "main": "dist/index.html",
   "directories": {

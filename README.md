@@ -24,4 +24,4 @@ Also, this project was quickly done while I was learning how to create an extens
 - [ ] Save request for later
 - [ ] Compare requests
 - [x] Hide items slammer than 1ms
-- [ ] Display requests made before extension opens
+- [x] Display requests made before extension opens

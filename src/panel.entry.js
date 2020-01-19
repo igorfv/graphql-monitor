@@ -9,8 +9,7 @@ import hasTracing from './util/has-tracing'
 
 const tracingData = new TracingData()
 
-
-chrome.devtools.network.onRequestFinished.addListener((request) => {
+const addEntry = (request) => {
   if (request.response.status !== 200) return
   if (request.response.content.mimeType !== 'application/json') return
 
@@ -20,7 +19,15 @@ chrome.devtools.network.onRequestFinished.addListener((request) => {
 
     tracingData.add(data.extensions.tracing)
   })
+}
+
+// Add previous entries
+chrome.devtools.network.getHAR(({ entries }) => {
+  entries.forEach(addEntry)
 })
+
+// Add new entries
+chrome.devtools.network.onRequestFinished.addListener(addEntry)
 
 
 render(
