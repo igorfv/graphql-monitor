@@ -1,15 +1,14 @@
 {
-  "name": "vite-template-solid",
-  "version": "0.0.0",
-  "description": "",
+  "name": "graphql-monitor",
+  "version": "2.0.0",
+  "description": "Monitor GraphQL connections",
   "scripts": {
     "start": "vite",
-    "dev": "vite",
-    "build": "vite build",
-    "serve": "vite preview"
+    "build": "vite build"
   },
   "license": "MIT",
   "devDependencies": {
+    "@crxjs/vite-plugin": "^1.0.7",
     "typescript": "^4.6.4",
     "vite": "^2.9.9",
     "vite-plugin-solid": "^2.2.6"

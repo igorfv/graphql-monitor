@@ -5,12 +5,10 @@
 
 ## How to run
 
-### `npm dev` or `npm start`
+### `npm start`
 
-Runs the app in the development mode.  
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.  
+Runs the app in the development mode. Once the app is running it will update the `dist` on every change.  
+Open the [chrome://extensions](chrome://extensions) and click `load unpacked` to add the local extension, once the prompt opens select the `dist` folder.
 
 ### `npm run build`
 
