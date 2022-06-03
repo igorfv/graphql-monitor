@@ -2,7 +2,6 @@
 
 ![Interface Example](docs/interface-example.png)
 
-
 ## How to run
 
 ### `npm start`
