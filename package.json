@@ -1,75 +1,22 @@
 {
-  "name": "apollo-tracing-extension",
-  "version": "1.0.0",
-  "description": "Extension to help visualize Apollo Tracing Data",
-  "main": "dist/index.html",
-  "directories": {
-    "doc": "docs"
-  },
+  "name": "graphql-monitor",
+  "version": "2.0.0",
+  "description": "Monitor GraphQL connections",
   "scripts": {
-    "start": "webpack --watch",
-    "build": "webpack -p && npm run zip",
-    "zip": "zip -r extension.zip dist",
-    "fix": "eslint src --fix",
-    "lint": "eslint src",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "vite",
+    "build": "vite build"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+  "license": "MIT",
+  "devDependencies": {
+    "@crxjs/vite-plugin": "^1.0.7",
+    "autoprefixer": "^10.4.7",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.0.24",
+    "typescript": "^4.6.4",
+    "vite": "^2.9.9",
+    "vite-plugin-solid": "^2.2.6"
   },
-  "lint-staged": {
-    "*.js": [
-      "npm run fix",
-      "git add"
-    ]
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/igorfv/apollo-tracing-extension"
-  },
-  "keywords": [
-    "Apollo",
-    "Tracing",
-    "GraphQL"
-  ],
-  "author": "Igor Frias Vieira",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/igorfv/apollo-tracing-extension/issues"
-  },
-  "homepage": "https://github.com/igorfv/apollo-tracing-extension#readme",
   "dependencies": {
-    "@babel/cli": "^7.8.3",
-    "@babel/core": "^7.8.3",
-    "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "@babel/preset-env": "^7.8.3",
-    "@babel/preset-react": "^7.8.3",
-    "babel-eslint": "^10.0.3",
-    "babel-loader": "^8.0.6",
-    "clean-webpack-plugin": "^3.0.0",
-    "copy-webpack-plugin": "^5.1.1",
-    "css-loader": "^3.4.2",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-loader": "^3.0.3",
-    "eslint-plugin-import": "^2.20.0",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.18.0",
-    "eslint-plugin-react-hooks": "^2.3.0",
-    "html-webpack-plugin": "^3.2.0",
-    "husky": "^4.0.10",
-    "lint-staged": "^9.5.0",
-    "lodash": "^4.17.15",
-    "node-sass": "^4.13.1",
-    "prop-types": "^15.7.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "sass-loader": "^8.0.2",
-    "style-loader": "^1.1.3",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10",
-    "webpack-config-utils": "^2.3.1"
+    "solid-js": "^1.4.2"
   }
 }

@@ -1,27 +1,14 @@
-# Apollo Tracing Developer Tools Extension
+# GraphQL Monitor with Tracing
 
-This is a chrome dev tool extension that I wrote in a couple of hours to help me visualize the GraphQL tracing data from my requests.
-It probably have some bugs but I'll fix them as soon as I can.
+![Interface Example](docs/interface-example.png)
 
-Also, this project was quickly done while I was learning how to create an extension, so as you can see it's not very organized. That means that before adding any new feature I need to organize it and create a build structure. Please feel free to contribute if you think you can help.
+## How to run
 
-![](docs/interface-example.png)
+### `npm start`
 
-## Todo list
+Runs the app in the development mode. Once the app is running it will update the `dist` on every change.  
+Open the [chrome://extensions](chrome://extensions) and click `load unpacked` to add the local extension, once the prompt opens select the `dist` folder.
 
-### Basic structure
-- [x] Pack extension on prod build
-- [x] Add webpack (or other tool)
-- [x] Uglify
-- [x] Add babel and JSX support
-- [x] Add SASS/Styled components
-- [ ] Add Jest and write unit tests
-- [x] Split component files
-- [x] Create a better layout
-- [ ] Find a designer to create an actual good layout
+### `npm run build`
 
-### Features
-- [ ] Save request for later
-- [ ] Compare requests
-- [x] Hide items slammer than 1ms
-- [x] Display requests made before extension opens
+Builds the app for production to the `dist` folder.  

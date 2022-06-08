@@ -1,4 +1,2 @@
-node_modules/
-dist/
-.DS_Store
-extension.zip
+node_modules
+dist
